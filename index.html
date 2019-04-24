@@ -1,95 +1,53 @@
 <html>
-    <head>
+  <head>
+    <title>Turing Drawings</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta http-equiv="encoding" content="utf-8" />
+    <meta
+      name="keywords"
+      content="javascript, html5, canvas, Alan Turing, Turing machine, drawing, evolutionary"
+    />
+    <meta name="description" content="" />
+    <script language="javascript" src="utils-html.js"></script>
+    <script language="javascript" src="utils-misc.js"></script>
+    <script language="javascript" src="main.js"></script>
+    <script language="javascript" src="programs.js"></script>
 
-        <title>Turing Drawings</title>
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-        <meta http-equiv="encoding" content="utf-8">
-        <meta name="keywords" content="javascript, html5, canvas, Alan Turing, Turing machine, drawing, evolutionary">
-        <meta name="description" content="">
-        <script language="javascript" src="utils-html.js"></script>
-        <script language="javascript" src="utils-misc.js"></script>
-        <script language="javascript" src="main.js"></script>
-        <script language="javascript" src="programs.js"></script>        
-
-        <link rel=stylesheet href="stylesheet.css" type="text/css">
-
-    </head>
-    <body>
-
-        <a href="https://github.com/maximecb/Turing-Drawings">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="forkme.png" alt="Fork me on GitHub">
-        </a>
-
-        <div class="title">
-        Turing Drawings
+    <link rel="stylesheet" href="stylesheet.css" type="text/css" />
+  </head>
+  <body>
+    <div align="center">
+      <!-- controls column -->
+      <form name="params" action="">
+        <div style="margin-top:8px; margin-bottom:8px;">
+          Num states:
+          <input id="numStates" type="text" size="3" value="4" />
+          Num symbols:
+          <input id="numSymbols" type="text" size="3" value="3" />
+          <button type="button" onclick="randomProg();">Random</button>
+          <button type="button" onclick="restartProg();">Restart</button>
+          <button type="button" onclick="pause();">Pause</button>
         </div>
+      </form>
 
-        <div align="center">
-        <table>
-        <tr>
-            <!-- canvas column -->
-            <td>
-                <div class="canvas_frame" style="width:512px; height:512px;">
-                    <canvas id="canvas">
-                        Your browser does not support the canvas element.
-                    </canvas>
-                </div>
-            </td>
-        
-            <!-- spacer column -->
-            <td width="10">
-            </td>
+      <div>
+        <canvas id="canvas">
+          Your browser does not support the canvas element.
+        </canvas>
+      </div>
 
-            <!-- controls column -->
-            <td style="text-align:center; vertical-align: text-top;">
-                <form name="params" action="">
-
-                    <div style="margin-top:8px; margin-bottom:8px;">
-                        Num states:
-                        <input id="numStates" type="text" size="3" value="4">
-                        Num symbols:
-                        <input id="numSymbols" type="text" size="3" value="3">
-                    </div>
-
-                    <div style="margin-top:8px; margin-bottom:8px;">
-                        <button type="button" onclick="randomProg();">Random</button>
-                        <button type="button" onclick="restartProg();">Restart</button>
-                    </div>
-
-                    <div style="margin-top:16px; margin-bottom:16px; width:400px; text-align: justify;">
-                    Turing Drawings uses randomly generated Turing machines to produce
-                    drawings on a canvas, as a form of generative art. The typical
-                    Turing machine formulation manipulates symbols on a one-dimensional
-                    tape. Turing Drawings uses machines that operate on a finite 2D grid,
-                    where each grid cell can contain one symbol which corresponds to a
-                    color value. This 2D grid is represented in the canvas shown at the left,
-                    which is dynamically updated as the Turing machine iterates.
-                    <br><br>
-                    You can generate new drawings by pressing the "Random" button above. If
-                    you find a drawing you like, and would like to share it online, you can
-                    do so by copying the custom URL shown in the text area below.
-                    </div>
-
-                    <div style="margin-top:8px; margin-bottom:8px;">
-                        <div>
-                        Shareable URL for this drawing:
-                        </div>
-                        <div>
-                        <input id="shareURL" type="text" size="42" value="" readonly>
-                        </div>
-                    </div>
-
-                </form>
-            </td>
-
-        </tr>
-        </table>
+      <div style="margin-top:8px; margin-bottom:8px;">
+        <div>
+          Shareable URL for this drawing:
         </div>
-
-        <div class="copyright">
-        Copyright &copy; 2012 Maxime Chevalier-Boisvert
+        <div>
+          <input id="shareURL" type="text" size="42" value="" readonly />
         </div>
+      </div>
+    </div>
 
-    </body>
+    <div class="copyright">
+      Copyright &copy; 2012 Maxime Chevalier-Boisvert
+    </div>
+  </body>
 </html>
-
